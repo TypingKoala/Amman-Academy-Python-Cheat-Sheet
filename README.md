@@ -1,7 +1,7 @@
 # Amman Academy Python Cheat Sheet
 - [Amman Academy Python Cheat Sheet](#amman-academy-python-cheat-sheet)
   - [The print() statement](#the-print-statement)
-  - [Variable assignemnt](#variable-assignemnt)
+  - [Variable assignment](#variable-assignment)
   - [Commenting](#commenting)
   - [Getting user input using input()](#getting-user-input-using-input)
   - [Data types](#data-types)
@@ -28,7 +28,7 @@ print('Hello world!')
 
 Note that there is no space between the *print* and the parentheses. While the code will work with a space, it is against convention to do so.
 
-## Variable assignemnt
+## Variable assignment
 You can create variables that store data for you, and reference the variable name whenever you want to retrieve the data. We go over different types of data that Python supports below.
 
 Variable names must start with a letter or underscore, contain only letters, numbers, or underscores, and cannot be special keywords otherwise used in Python.
