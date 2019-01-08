@@ -16,12 +16,6 @@
   - [While Loops](#while-loops)
   - [Functions and Writing Modular Code](#functions-and-writing-modular-code)
 
-print
-input
-comments
-variables
-datatypes
-operators
 
 
 ## The print() statement
