@@ -360,7 +360,7 @@ By now, we have explained the basics of what you need to know to code most thing
 
 Functions are a way of writing code that can be used in more than one place. It is often very helpful to break down your code so that it is more readable and easier to maintain and fix. 
 
-Just like in math, functions take a certain input and give you an output. You can have multiple inputs, called *parameters*, and generate an output by *returning* data.
+Just like in math, functions take a certain input and give you an output. You can have multiple inputs, called *arguments*, and generate an output by *returning* data.
 
 Here's a simple example:
 ```python
@@ -377,4 +377,50 @@ Inside the function body, we print a message concatenated with the country_name 
 
 In the last two lines, we *call* the function with the country_name `'America'` and `'Jordan'`. It then prints the message with the given country_name.
 
-We have not talked about returning data from within a function yet, but this documentation will be updated for tomorrow.
+Functions can also return data to the location where the function was called. Recall that you can call a function by referencing the name of the function followed by parentheses: 
+
+```python
+def foo(): # this is the function definition
+  print('hi')
+
+foo() # this is the function call, prints 'hi'
+```
+
+Instead of printing within the function, you can extract data from the function's output using a `return` statement.
+
+```python
+def bar(): 
+  return 'hi'
+
+print(bar()) # since bar() returns the string 'hi', the print statement will print 'hi'
+```
+
+This is useful for more advanced concepts of Python. Let's see another example where the function takes arguments:
+
+```python
+def linear_eq(a, b, x):
+  '''
+  takes integer a, b, and x of a linear equation
+  returns a*x+b
+  '''
+  return a*x + b
+
+print(linear_eq(1, 2, 1)) # prints 3
+
+print(linear_eq(3, 1, 2)) # prints 7
+```
+
+What if we want to raise a number to the 4th power, but we only can use a function that squares a number? Easy!
+
+```python
+def square(a):
+    '''
+    takes integer a
+    returns a^2
+    '''
+    return a**2
+
+print(square(square(2))) # prints 16
+```
+
+Notice the inner `square(2)` would return 4, and the outer function would take `4` as an input and evaluate `square(4)`, thus returning 16 to the print statement. This is equivalent to 2^4, since (2^2)^2=2^4.
