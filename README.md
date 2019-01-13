@@ -15,6 +15,10 @@
   - [The mighty range() function](#the-mighty-range-function)
   - [While Loops](#while-loops)
   - [Functions and Writing Modular Code](#functions-and-writing-modular-code)
+  - [Lists and Dictionaries](#lists-and-dictionaries)
+    - [Indexing and Slicing a List](#indexing-and-slicing-a-list)
+    - [Appending to a list](#appending-to-a-list)
+    - [Interacting with a dictionary](#interacting-with-a-dictionary)
 
 
 
@@ -424,3 +428,115 @@ print(square(square(2))) # prints 16
 ```
 
 Notice the inner `square(2)` would return 4, and the outer function would take `4` as an input and evaluate `square(4)`, thus returning 16 to the print statement. This is equivalent to 2^4, since (2^2)^2=2^4.
+
+## Lists and Dictionaries
+Lists and dictonaries are ways to better organize data that you use in your code. They are both types natively supported by Python, and you can create your own by using square brackets or curly braces:
+
+```python
+myDict = {} # this creates an empty dictionary called myDict
+myList = [] # this creates an empty list called myList
+```
+
+There are many methods that you can use to alter data inside a list and dictonary. We will only go over the simple ones. You can check the Python documentation on [lists](https://www.w3schools.com/python/python_ref_list.asp) and [dictionaries](https://www.w3schools.com/python/python_ref_dictionary.asp) in order to better understand the ways that you can change data in each.
+
+### Indexing and Slicing a List
+You can get either a single element or a subsequence of a list by using square brackets on a list.
+
+```python
+myList = ['a', 'b', 'c', 'd']
+print(myList[0]) # prints 'a'
+print(myList[0:2]) # prints ['a', 'b']
+```
+
+Note that for slicing, the start index is inclusive and the stop number is exclusive, so if you want to get a list with elements 0 and 1, you want to slice `[0:2]`. 
+
+You also can index and slice a string using the same notation:
+
+```python
+myString = 'abcdefg'
+print(myString[0]) # prints 'a'
+print(myString[0:2]) # prints 'ab'
+```
+
+### Appending to a list
+You can add to the end of a list using the `.append()` method. 
+
+```python
+myList = ['a', 'b']
+myList.append('c')
+print(myList) # prints ['a', 'b', 'c']
+```
+
+### Interacting with a dictionary
+Just like a regular dictionary, a Python dictonary stores data using something called keys and values. Keys are like the words you would find in a dictionary, and values are the definitions of the words.
+
+```
+# an example of an English dictionary entry
+Python: a large heavy-bodied non-venomous snake
+Pythonesque: denoting a kind of humour that is absurd and unpredictable
+```
+
+```python
+# an example of a Python dictonary
+myDict = {
+  'python': 'a large heavy-bodied non-venomous snake',
+  'pythonesque': 'denoting a kind of humour that is absurd and unpredictable'
+}
+```
+
+In this case, `'python'` is the key, and the text afterward is the value. In the middle, there is a colon to seperate the key and value. You can have more than one entry in the dictionary by separating each item with a comma.
+
+You can add a new entry or edit an existing entry by indexing into the dictonary using the key.
+
+```python
+myDict = {
+  'python': 'a large heavy-bodied non-venomous snake',
+  'pythonesque': 'denoting a kind of humour that is absurd and unpredictable'
+}
+
+myDict['python'] = 'a programming language'
+
+print(myDict) # prints myDict with an altered definition of 'python'
+
+myDict['pythonic'] = 'of or relating to pythons'
+
+print(myDict) # prints myDict with an additional key and value
+```
+
+A consequence of this behavior is that you must have unique keys for every single entry, otherwise Python will not be able to determine what entry you would like to edit. For example, this dictionary would result in an error:
+
+```python
+myDict = {
+  'a': 'the first letter',
+  'a': 'signifying a singlar noun'
+}
+```
+
+And lastly, just like lists, you can get a single item out of a list by indexing, but instead of using the position of the item in the dictonary, you use the key:
+
+```python
+myDict = {
+  'python': 'a large heavy-bodied non-venomous snake',
+  'pythonesque': 'denoting a kind of humour that is absurd and unpredictable'
+}
+
+print(myDict['python']) # prints 'a large heavy-bodied non-venomous snake'
+
+print(myDict['pythonesque']) # prints 'denoting a kind of humour that is absurd and unpredictable'
+```
+
+The dictonary entries do not necessarily be strings, but keys cannot be mutable (which means that they shouldn't be a type which can be altered in place, like a dictonary or a list). This is because Python needs a stable way to reference any dictonary entry. 
+
+```python
+myDict = {
+  'foo': ['a', 'b', 'c'],
+  'bar': {'x': 'y'}
+} # this is a valid dictionary
+
+myDict = {
+  ['a', 'b'] = 'abc'
+} # this is not a valid dictonary because the key is a list, which is mutable.
+```
+
+You can learn more about mutable and immutable types [here](https://medium.com/@meghamohan/mutable-and-immutable-side-of-python-c2145cf72747).
+
